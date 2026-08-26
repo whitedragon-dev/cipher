@@ -1,0 +1,19 @@
+name = "cipher"
+main = "src/worker.js"
+compatibility_date = "2026-01-29"
+
+# D1 Database Binding (connect in Dashboard)
+[[d1_databases]]
+binding = "DB"
+database_name = "cipher"
+database_id = ""  # Leave empty - you'll bind in Dashboard
+
+# Durable Object Binding
+[[durable_objects.bindings]]
+name = "CIPHER_CHAT"
+class_name = "CipherChat"
+
+# Auto-creates Durable Object on deploy
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["CipherChat"]
