@@ -1,19 +1,19 @@
 name = "cipher"
-main = "src/worker.js"
-compatibility_date = "2026-08-26" # Use today's date or later
+main = "_worker.js"  # ← Changed from src/worker.js
+compatibility_date = "2026-08-26"
 
-# D1 Database Binding (you bind this in the Dashboard)
+# D1 Database Binding (bind in Dashboard)
 [[d1_databases]]
 binding = "DB"
 database_name = "cipher"
-# database_id is NOT needed here because you bind via the Dashboard
+database_id = ""  # Leave empty - bind in Dashboard
 
 # Durable Object Binding
 [[durable_objects.bindings]]
 name = "CIPHER_CHAT"
 class_name = "CipherChat"
 
-# CRITICAL: Use new_sqlite_classes for Free Plan compatibility
+# Auto-creates Durable Object on deploy
 [[migrations]]
 tag = "v1"
 new_sqlite_classes = ["CipherChat"]
